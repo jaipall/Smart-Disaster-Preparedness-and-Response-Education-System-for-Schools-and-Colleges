@@ -1,5 +1,5 @@
 import Drill from "../models/drill.model.js";
-
+// drill
 export const createDrill = async (req, res) => {
   try {
     const { userId, type, date } = req.body;
@@ -25,7 +25,7 @@ export const updateDrillStatus = async (req, res) => {
     const updatedDrill = await Drill.findByIdAndUpdate(
       drillId,
       { status, score },
-      { new: true } // This option returns the updated document
+      { new: true }, // This option returns the updated document
     );
 
     if (!updatedDrill) {
@@ -65,7 +65,7 @@ export const completeDrill = async (req, res) => {
     const updatedDrill = await Drill.findByIdAndUpdate(
       drillId,
       { status: "completed", score: score },
-      { new: true }
+      { new: true },
     );
 
     if (!updatedDrill) {
