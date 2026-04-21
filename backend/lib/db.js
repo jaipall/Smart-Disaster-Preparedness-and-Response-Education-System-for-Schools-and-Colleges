@@ -7,3 +7,4 @@ export const connectDB = async () => {
     console.log("MongoDb Error!", error);
   }
 };
+// db
