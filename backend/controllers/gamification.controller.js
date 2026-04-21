@@ -11,6 +11,7 @@ export const getUserProgress = async (req, res) => {
   }
 };
 
+// gamification
 export const updateUserProgress = async (req, res) => {
   try {
     const { xpGain, badgeEarned, streak } = req.body;
