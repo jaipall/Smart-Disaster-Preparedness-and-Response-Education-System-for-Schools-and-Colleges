@@ -1,5 +1,5 @@
 import Disaster from "../models/disaster.model.js";
-
+// disaster
 export const getAllDisasters = async (req, res) => {
   try {
     const disasters = await Disaster.find();
