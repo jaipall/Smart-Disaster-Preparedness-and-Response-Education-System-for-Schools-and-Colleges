@@ -1,6 +1,7 @@
 import Report from "../models/report.model.js";
 
 // Create a new report
+// report
 export const createReport = async (req, res) => {
   try {
     const report = new Report(req.body);
@@ -17,7 +18,7 @@ export const getAllReports = async (req, res) => {
   try {
     const reports = await Report.find().populate(
       "reporterId",
-      "name email role"
+      "name email role",
     );
     res.status(200).json(reports);
   } catch (err) {
