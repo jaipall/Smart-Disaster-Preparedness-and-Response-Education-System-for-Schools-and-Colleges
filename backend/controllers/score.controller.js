@@ -1,5 +1,6 @@
 import Score from "../models/score.model.js";
 
+// score
 export const getUserScore = async (req, res) => {
   try {
     const score = await Score.findOne({ userId: req.params.userId });
@@ -18,7 +19,7 @@ export const addXP = async (req, res) => {
     const score = await Score.findOneAndUpdate(
       { userId },
       { $inc: { xp }, lastDrillCompleted: new Date() },
-      { new: true, upsert: true }
+      { new: true, upsert: true },
     );
     res.json(score);
   } catch (err) {
@@ -32,7 +33,7 @@ export const assignBadge = async (req, res) => {
     const score = await Score.findOneAndUpdate(
       { userId },
       { $addToSet: { badges: badge } },
-      { new: true, upsert: true }
+      { new: true, upsert: true },
     );
     res.json(score);
   } catch (err) {
