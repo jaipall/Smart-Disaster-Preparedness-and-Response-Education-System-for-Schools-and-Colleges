@@ -10,10 +10,11 @@ const generateToken = (user) => {
       region: user.region,
     },
     process.env.SECRET_PRIVATE_KEY,
-    { expiresIn: "7d" }
+    { expiresIn: "7d" },
   );
 };
 
+// registion
 export const registerUser = async (req, res) => {
   try {
     const { name, email, password, region, role } = req.body;
@@ -34,7 +35,7 @@ export const registerUser = async (req, res) => {
     });
 
     const token = generateToken(newUser);
-    
+
     // Set httpOnly cookie for authentication
     res.cookie("jwt", token, {
       httpOnly: true,
@@ -42,7 +43,7 @@ export const registerUser = async (req, res) => {
       sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
-    
+
     console.log("Incoming signup data:", req.body);
     res.status(201).json({ user: newUser, token });
   } catch (error) {
