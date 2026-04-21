@@ -86,7 +86,7 @@ const app = express();
 const PORT = process.env.PORT || 5001;
 
 // -----------------------------
-// ✅ CORS CONFIG (FINAL FIX)
+// ✅ CORS CONFIG 
 // -----------------------------
 const allowedOrigins = [
   "http://localhost:5173",
@@ -127,6 +127,7 @@ app.use((req, res, next) => {
 // ✅ MIDDLEWARE
 // -----------------------------
 app.use(express.json());
+
 app.use(cookieParser());
 
 // -----------------------------
